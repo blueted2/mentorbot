@@ -6,6 +6,8 @@ import net.dv8tion.jda.api.entities.Role;
 
 import java.util.*;
 
+import info.Config;
+
 /**
  * An object that provides methods to store Topic information into
  * a Guild's role list.
@@ -38,10 +40,10 @@ public class Server {
         List<Role> roles = guild.getRoles();
         for (Role role : roles) {
             String name = role.getName();
-            if (name.startsWith(Topic.PREFIX)) {
+            if (name.startsWith(Config.TOPIC_PREFIX)) {
                 topics.put(
-                    name.toLowerCase().substring(Topic.PREFIX.length()),
-                    new Topic(name.substring(Topic.PREFIX.length()), role, mentoringCategory)
+                    name.toLowerCase().substring(Config.TOPIC_PREFIX.length()),
+                    new Topic(name.substring(Config.TOPIC_PREFIX.length()), role, mentoringCategory)
                 );
             }
         }
@@ -63,7 +65,7 @@ public class Server {
      */
     public void createTopic(String topicName) {
         guild.createRole()
-                .setName(Topic.PREFIX + topicName)
+                .setName(Config.TOPIC_PREFIX + topicName)
                 .setMentionable(true)
                 .queue(role -> topics.put(topicName, new Topic(topicName, role, mentoringCategory)));
     }

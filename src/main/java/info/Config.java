@@ -19,4 +19,6 @@ public class Config {
      * The prefix character used for bot commands.
      */
     public static String COMMAND_PREFIX = "$";
+
+	public static final String TOPIC_PREFIX = "Topic | ";
 }

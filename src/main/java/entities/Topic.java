@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Optional;
 
+import info.Config;
+
 /**
  * A topic for a server. Internally contains a queue of Members.
  */
 public class Topic {
-    public static final String PREFIX = "Topic | ";
-
     private final String name;
     private final Role role;
     private final Category category;
@@ -162,6 +162,6 @@ public class Topic {
      * @return This Topic's role's name
      */
     public String getRoleName() {
-        return PREFIX + name;
+        return Config.TOPIC_PREFIX + name;
     }
 }
