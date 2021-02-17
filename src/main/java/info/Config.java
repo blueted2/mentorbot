@@ -21,4 +21,6 @@ public class Config {
     public static String COMMAND_PREFIX = "$";
 
 	public static final String TOPIC_PREFIX = "Topic | ";
+
+	public static final String SERVER_MENTORING_CATEGORY_NAME = "Mentoring";
 }

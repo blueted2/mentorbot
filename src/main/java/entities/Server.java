@@ -13,7 +13,6 @@ import info.Config;
  * a Guild's role list.
  */
 public class Server {
-    public static final String MENTORING_CATEGORY_NAME = "Mentoring";
     private final Guild guild;
     private final Category mentoringCategory;
 
@@ -31,10 +30,10 @@ public class Server {
         this.guild = guild;
 
         // setup mentoring channel category
-        Optional<Category> optionalCategory = guild.getCategoriesByName(MENTORING_CATEGORY_NAME, false)
+        Optional<Category> optionalCategory = guild.getCategoriesByName(Config.SERVER_MENTORING_CATEGORY_NAME, false)
             .stream()
             .findFirst();
-        mentoringCategory = optionalCategory.orElseGet(() -> guild.createCategory(MENTORING_CATEGORY_NAME).complete());
+        mentoringCategory = optionalCategory.orElseGet(() -> guild.createCategory(Config.SERVER_MENTORING_CATEGORY_NAME).complete());
 
         // setup roles
         List<Role> roles = guild.getRoles();
